@@ -27,10 +27,12 @@ h1 {
     color: white;
 }
 main {
-    /* margin: 0 20em; */
     justify-content: space-between;
     display: flex;
     flex-direction: column;
+    padding: 0 50px;
+    background-color: #f9f9f9;
+
 }
 #LoginForm { 
     padding: 4em 0;

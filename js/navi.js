@@ -232,10 +232,20 @@ async function get(url) {
 }
 
 function initNavi() {
+    $(".filter-button").click(function () {
+        handleFilterButtonClick(this);
+    });
+
     $("#home").click(() => {contactsQuery()});
     $("#newContact").click(addContact);
     $("#users").click(() => {usersQuery()});
     $("#logout").click(logout);
+}
+
+function handleFilterButtonClick(button) {
+
+    $(".filter-button").removeClass("selected");
+    $(button).addClass("selected");
 }
 
 function formData(list) {

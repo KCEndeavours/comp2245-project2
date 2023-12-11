@@ -26,7 +26,7 @@ try {
         $currentTimestamp = date('Y-m-d H:i:s');
 
         // Check if the form has been submitted and the fields are not empty
-        if (!empty($firstname) && !empty($lastname) && !empty($email) && !empty($telephone) && !empty($company) && !empty($type) && !empty($assigned_to)) {
+        if (!empty($title) && !empty($firstname) && !empty($lastname) && !empty($email) && !empty($telephone) && !empty($company) && !empty($type) && !empty($assigned_to)) {
 
             // Check if the contact with the same email already exists
             $checkQuery = $conn->prepare("SELECT * FROM contacts WHERE email = ?");
@@ -37,20 +37,21 @@ try {
                 echo '<script>alert("The contact with the provided email already exists.");</script>';
             } else {
                 // Performing insert query execution
-                $insertQuery = $conn->prepare("INSERT INTO contacts (firstname, lastname, email, telephone, company, type, assigned_to, created_by, created_at, updated_at) 
-                                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                $insertQuery = $conn->prepare("INSERT INTO contacts (title, firstname, lastname, email, telephone, company, type, assigned_to, created_by, created_at, updated_at) 
+                                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
                 // Bind parameters to the prepared statement
-                $insertQuery->bindParam(1, $firstname);
-                $insertQuery->bindParam(2, $lastname);
-                $insertQuery->bindParam(3, $email);
-                $insertQuery->bindParam(4, $telephone);
-                $insertQuery->bindParam(5, $company);
-                $insertQuery->bindParam(6, $type);
-                $insertQuery->bindParam(7, $assigned_to);
-                $insertQuery->bindParam(8, $created_by);
-                $insertQuery->bindParam(9, $currentTimestamp);
+                $insertQuery->bindParam(1, $title);
+                $insertQuery->bindParam(2, $firstname);
+                $insertQuery->bindParam(3, $lastname);
+                $insertQuery->bindParam(4, $email);
+                $insertQuery->bindParam(5, $telephone);
+                $insertQuery->bindParam(6, $company);
+                $insertQuery->bindParam(7, $type);
+                $insertQuery->bindParam(8, $assigned_to);
+                $insertQuery->bindParam(9, $created_by);
                 $insertQuery->bindParam(10, $currentTimestamp);
+                $insertQuery->bindParam(11, $currentTimestamp);
 
                 // Execute the prepared statement
                 $insertQuery->execute();
