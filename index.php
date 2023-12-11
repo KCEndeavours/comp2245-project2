@@ -40,7 +40,7 @@ if (!isset($_SESSION['userid']) || empty($_SESSION['userid'])) {
                 <ul>
                     <li class="nav-item" id="home"><i class="fa fa-home"></i> Home</li>
                     <li class="nav-item" id="newContact"><i class="fa fa-user-circle"></i> New Contact</li>
-                    <?php if (isset($_SESSION['userrole']) && $_SESSION['userrole'] === 'IT Support') : ?>
+                    <?php if (isset($_SESSION['userrole']) && $_SESSION['userrole'] === 'Admin') : ?>
                     <li class="nav-item" id="users"><i class="fa fa-users"></i> Users</li>
                     <?php endif; ?>
                     <li class="nav-item" id="logout" role="'button" id="logout"><i class="fa fa-arrow-circle-o-left"></i> Logout</li>
