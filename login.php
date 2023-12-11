@@ -47,10 +47,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
         <meta charset="utf-8">
 		<title>Dolphin CRM</title>
 
-		<!-- you can modify this as needed or to your preference -->
 		<link href="dolphin.css" type="text/css" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 		<!-- <script src="dolphin.js" type="text/javascript"></script> -->
+        <link href="login.css" type="text/css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	</head>
 
     <body>
