@@ -116,13 +116,26 @@ input {
    "b c"
    "d e"
    "f g"
-   "h h";
+   "h h"
+   "s s";
 
    gap: 20px;
 
    border: 1px solid grey;
    border-radius: 5px;
    padding: 15px;
+}
+
+#newCon #s {
+   grid-area: s;
+}
+
+#newCon #a {
+   grid-area: a / span 2; /* Make 'a' span the entire row and 2 columns */
+}
+
+#newCon #h {
+   grid-area: h / span 2;
 }
 #newUse {
    display: grid;
@@ -132,12 +145,21 @@ input {
    grid-template-areas: 
    "a b"
    "c d"
-   "e e";
+   "e e"
+   "f f";
 
    gap: 20px;
 
    border: 1px solid grey;
    border-radius: 5px;
    padding: 15px;
+}
+
+#newUse #f {
+   grid-area: f;
+}
+
+#newUse #e {
+   grid-area: e / span 2;
 }
 

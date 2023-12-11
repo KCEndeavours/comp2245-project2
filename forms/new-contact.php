@@ -12,8 +12,10 @@ $currentPage = 'contacts';
 <div id="head">
     <h2>New Contact</h2>
 </div>
-    <form id="newCon" onsubmit="return checkContact()">
-        
+
+<form onsubmit="return checkContact()">
+    <div id="newCon">
+    
         <p id="a">
             <label for="title">Title:</label>
             <select id="title" name="title" required>
@@ -73,6 +75,7 @@ $currentPage = 'contacts';
                 ?>
             </select>
         </p>
-
-        <input type="submit" class="btn" value="Submit">
-    </form>
+    <input id="s" type="submit" class="btn" value="Submit">
+    </div>
+    
+</form>
