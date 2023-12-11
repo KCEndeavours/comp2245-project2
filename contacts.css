@@ -1,0 +1,126 @@
+#head {
+    display: flex;
+}
+#contactDetails {
+   background-color: #ffffff;
+   padding: 25px 0;
+}
+
+#basic {
+   display: flex;
+   align-items: center;
+}
+#contactimg {
+   float:left;
+   margin-right: 10px;
+   width: 50;
+   height: 50px;
+   border-radius: 20%;
+
+}
+#block {
+    flex-direction: column;
+ }
+
+ #viewbtns {
+    display: flex;
+ }
+
+ #mainDetails {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+
+    grid-template-areas: 
+    "mail tele"
+    "com assi";
+
+    gap: 50px;
+
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 15px;
+ }
+
+#notesSection {
+   border: 1px solid grey;
+   border-radius: 5px 5px 0 0;
+   padding: 10px;
+   border-bottom: 0;
+   background-color: #ffffff;
+
+
+}
+
+#newNote {
+   padding: 20px;
+   justify-content: space-between;
+}
+ h4,h3, p {
+   margin: 0;
+ }
+ h4 {
+   border-bottom: 1px solid gray;
+ }
+
+ button {
+   border-radius: 8px;
+ }
+
+ label {
+   display: block;
+   font-weight: 200;
+   margin-bottom: 5px;
+   /* width: 100%; */
+ }
+
+textarea {
+   width: 100%;
+   line-height: 30px;
+}
+
+#viewbtns {
+   display: flex;
+   gap: 20px;
+   justify-content: space-between;
+}
+#assignBtn {
+   padding: 1px 10px;
+   background-color: teal;
+}
+
+#updateTypeBtn {
+   padding: 5px 10px;
+   background-color: rgb(52, 155, 144);
+}
+
+select {
+   border-radius: 6px;
+   width: 150px;
+   padding: 10px;
+}
+
+input {
+   margin-top: 0;
+   width: 300px;
+}
+
+#newCon {
+   display: grid;
+   grid-template-rows: 1fr 1fr;
+   grid-template-columns: 1fr 1fr;
+
+   grid-template-areas: 
+   "a"
+   "b c"
+   "d e"
+   "f g"
+   "h";
+
+   gap: 20px;
+
+   border: 1px solid grey;
+   border-radius: 5px;
+   padding: 15px;
+}
+

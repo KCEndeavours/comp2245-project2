@@ -10,7 +10,7 @@ $currentPage = 'user';
    <body>
       <main>
          <h3>Add new user to Dolphin Database</h3>
-         <form action="php/newuser.php" method="post">
+         <form onsubmit="return checkUser()">
              
             <p>
                <label for="firstName">First Name:</label>

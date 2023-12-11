@@ -37,20 +37,12 @@ main {
     /* display: flex; */
     /* flex-direction: column; */
     /* flex: 1; */
-    padding: 0 50px;
+    padding: 30px 50px;
     background-color: #f9f9f9;
     grid-column: 2;
     height: 100vh;
 
 
-}
-#LoginForm { 
-    padding: 4em 0;
-    text-align: center;
-    justify-content: space-between;
-    display: flex;
-    flex-direction: column;
-    margin: 0.5px;
 }
 
 h2 {
@@ -108,43 +100,6 @@ li {
   cursor: pointer;
 }
 
-/* Login form style */
-
-#LoginForm {
-  width: 460px;
-  margin: 0 auto;
-  padding: 15px;
-  border-radius: 8px;
-}
-
-.login-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.lock-icon {
-  color: #b1b4b9;
-  font-size: 20px;
-  margin-left: 15px;
-}
-
-#loginForm .input-container {
-  margin: 15px 0; /* Adjusted margin for top and bottom */
-}
-
-#loginForm input {
-  width: calc(100% - 20px);
-  height: 40px;
-  padding: 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .btn {
   margin: 0px 0;
   padding: 15px 0;
@@ -157,18 +112,4 @@ li {
   display: flex;
   justify-content: center;
 }
-#loginForm input[type="submit"] {
-  background-color: teal;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  padding: 15px 0;
-  border-radius: 8px;
-  width: calc(100% - 20px);
-  box-sizing: border-box;
-  margin-bottom: 10px; /* Adjusted margin for bottom */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+

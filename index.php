@@ -18,7 +18,7 @@ if (!isset($_SESSION['userid']) || empty($_SESSION['userid'])) {
 
 		<!-- you can modify this as needed or to your preference -->
 		<link href="dolphin.css" type="text/css" rel="stylesheet" />
-        <link href="viewcontacts.css" type="text/css" rel="stylesheet" />
+        <link href="contacts.css" type="text/css" rel="stylesheet" />
         <link href="tables.css" type="text/css" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
         

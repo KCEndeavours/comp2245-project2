@@ -65,9 +65,6 @@ try {
         exit;
     }
 
-    // Include the HTML part of the page
-    include "new-contact.php";
-
 } catch (PDOException $e) {
 echo 'Error: ' . $e->getMessage();
 }

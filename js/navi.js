@@ -76,16 +76,62 @@ function addUser() {
     display(url);
 }
 
+// function checkNote() {
+//     let valid = true;
+//     const firstName = $("#firstname").val();
+//     const lastName = $("#lastname").val();
+//     const pass = $("#password").val();
+//     const email = $("#email").val();
+
+//     //if inputs are valid
+//     if (valid) {
+//         const url = "php/newuser.php";
+//         const data = {
+//             "firstname": firstName,
+//             "lastname": lastName,
+//             "password": pass,
+//             "email":    email
+//         };
+//         display(url, body=data);
+//     }
+//     return false;
+// }
+
+function postNote(id, userid) {
+    let url = "php/addnote.php";
+    let data = new FormData();
+    data.append('id', id);
+    data.append('userid', userid);
+
+    fetch(url, {
+        method: 'POST',
+        body: data
+    })
+    display(url, body = data)
+    .then(response => response.json())
+    .then(message => {
+        alert(message);
+        display(url);
+
+        viewContactDetails(id);
+       
+    })
+    .catch(error => console.error('Error:', error));
+
+return false;
+   
+}
+
 function checkUser() {
     let valid = true;
-    const firstName = $("#firstName").val();
-    const lastName = $("#lastName").val();
-    const pass = $("#Password").val();
-    const email = $("#emailAddress").val();
+    const firstName = $("#firstname").val();
+    const lastName = $("#lastname").val();
+    const pass = $("#password").val();
+    const email = $("#email").val();
 
     //if inputs are valid
     if (valid) {
-        const url = "php/new-user.php";
+        const url = "php/newuser.php";
         const data = {
             "firstname": firstName,
             "lastname": lastName,

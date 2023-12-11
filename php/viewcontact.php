@@ -38,20 +38,20 @@ if ($contactDetails) {
 
 ?>
 
-    <h1>Contact Details</h1>
-
     <div id="contactDetails">
         <div id="head">
             <!-- Display contact details here -->
-            <img src="../favicon.ico">
-            <div id="block">
-                <h3><?php echo $contactDetails['title'] . '  ' . $contactDetails['firstname'] . ' ' . $contactDetails['lastname']; ?></h3>
-                <!-- Add other contact details -->
-                <div id="time">
-                    <h6>Created on <?php echo $contactDetails['created_at'] . ' by ' . $creatorName; ?></h6>
-                    <h6>Updated on <?php echo $contactDetails['updated_at']; ?></h6>
-                </div>     
-            </div>   
+            <div id="basic">
+                <img id="contactimg" src="../favicon.ico">
+                <div id="block">
+                    <h3><?php echo $contactDetails['title'] . '  ' . $contactDetails['firstname'] . ' ' . $contactDetails['lastname']; ?></h3>
+                    <!-- Add other contact details -->
+                    <div id="time">
+                        <p>Created on <?php echo $contactDetails['created_at'] . ' by ' . $creatorName; ?></p>
+                        <p>Updated on <?php echo $contactDetails['updated_at']; ?></p>
+                    </div>     
+                </div> 
+            </div>  
             <div id="viewbtns">
                 <!-- Assign button -->
                 <?php if ($assignedId !== $_SESSION['userid']) { ?>
@@ -72,28 +72,28 @@ if ($contactDetails) {
 
         </div>
         <div id="mainDetails">
-            <div>
-                <label for="email"></label>
-                <h4 id="email">Email<?php echo $contactDetails['email']; ?></h4>  
+            <div id="mail">
+                <label for="email">Email:</label>
+                <p id="email"><?php echo $contactDetails['email']; ?></p>  
             </div>
-            <div>
-                <label for="telephone"></label>
-                <h4 id="telephone">Telephone <?php echo $contactDetails['telephone']; ?></h4>
+            <div id="tele">
+                <label for="telephone">Telephone:</label>
+                <p id="telephone"><?php echo $contactDetails['telephone']; ?></p>
             </div>
-            <div>
-                <label for="company"></label>
-                <h4 id="company">Company <?php echo $contactDetails['company']; ?></h4>
+            <div id="com">
+                <label for="company">Company:</label>
+                <p id="company"> <?php echo $contactDetails['company']; ?></p>
             </div>
-            <div>
-                <label for="assigned"></label>
-                <h4 id="assigned">Assigned to <?php echo $assignedName; ?></h4>
+            <div id="assi">
+                <label for="assigned">Assigned to:</label>
+                <p id="assigned"><?php echo $assignedName; ?></p>
             </div>
         </div>
     </div>
 
     <div id="notesSection">
         <!-- Display existing notes -->
-        <h2>Notes</h2>
+        <h4><i class="fa fa-sticky-note-o"></i>Notes</h4>
         <ul id="notesList">
             <?php
             // Checks for existing notes assigned to contact
@@ -107,14 +107,17 @@ if ($contactDetails) {
             }
             ?>
         </ul>
+    </div>
 
         <!-- Add new note section -->
-        <h2>Add New Note</h2>
-        <form id="addNoteForm">
-            <textarea name="noteComment" placeholder="Enter your note here" required></textarea>
+    <div id="newNote">
+        <h5>Add a note about <?php echo $contactDetails['firstname']; ?></h5>
+        <form id="addNoteForm" onsubmit="return postNote(<?php echo $contactDetails['id']; ?>, <?php echo $_SESSION['userid']; ?>)">
+            <textarea name="noteComment" id="noteComment" placeholder="Enter your note here" required></textarea>
             <button type="submit">Add Note</button>
         </form>
     </div>
+    
     <?php
 } else {
     echo "Contact not found.";

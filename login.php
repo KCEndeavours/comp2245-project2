@@ -28,13 +28,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
                 exit;
             } else {
                 echo '<div class="alert alert-danger">Invalid username or password</div>';
-                echo 'Username: ' . $email . '<br>';
-                echo 'Entered password: ' . $password . '<br>';
-                echo 'Hashed password in the database: ' . $row['password'] . '<br>';
+                // echo 'Username: ' . $email . '<br>';
+                // echo 'Entered password: ' . $password . '<br>';
+                // echo 'Hashed password in the database: ' . $row['password'] . '<br>';
             }
         } else {
             echo "<p>No account found for that email.</p>";
-            echo 'Username: ' . $email . '<br>';
+            // echo 'Username: ' . $email . '<br>';
 
         }
     }
@@ -72,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
                 </div>
                 <div class="button-container">
                 <button name="submit" type="submit" class="btn">
-                    <i class="fa fa-lock lock-icon"></i> Login
+                    <i class="fa fa-lock"></i>&nbsp;Login
                 </button>
             </div>
             </form>
