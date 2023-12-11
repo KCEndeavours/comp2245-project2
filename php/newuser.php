@@ -12,11 +12,11 @@ try {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    
         // Taking all 5 values from the form data(input)
-        $firstname =  $_REQUEST['firstname'];
-        $lastname = $_REQUEST['lastname'];
-        $password =  $_REQUEST['password'];
-        $email = $_REQUEST['email'];
-        $role = $_REQUEST['role'];
+        $firstname = htmlspecialchars($_POST['firstname']);
+        $lastname = htmlspecialchars($_POST['lastname']);
+        $password =  $_POST['password'];
+        $email = htmlspecialchars($_POST['email'], FILTER_SANITIZE_EMAIL);
+        $role = htmlspecialchars($_POST['role']);
         // Get the current timestamp for created_at
         $currentTimestamp = date('Y-m-d H:i:s');
 

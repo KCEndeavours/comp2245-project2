@@ -128,6 +128,7 @@ function checkUser() {
     const lastName = $("#lastname").val();
     const pass = $("#password").val();
     const email = $("#email").val();
+    const role = $("#role").val();
 
     //if inputs are valid
     if (valid) {
@@ -136,7 +137,9 @@ function checkUser() {
             "firstname": firstName,
             "lastname": lastName,
             "password": pass,
-            "email":    email
+            "email": email,
+            "role": role
+
         };
         display(url, body=data);
     }
