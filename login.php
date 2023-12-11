@@ -53,26 +53,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 		<!-- <script src="dolphin.js" type="text/javascript"></script> -->
 	</head>
 
-	<body>
-		<header>
-			<img src="dolphin.png" alt="dolphin logo" class="headerimg">
-			<h1>Dolphin CRM</h1>
-		</header>
+    <body>
+    <header>
+        <img src="dolphin.png" alt="dolphin logo" class="headerimg">
+        <h1>Dolphin CRM</h1>
+    </header>
 
-		<main>
-			<div id="LoginForm">
-				<h2 class="login">Login</h2>
-				<form id="loginForm" action="" method="post">
-					<input id="email" type="email" name="email" placeholder="Email address" required />
-                	<input id="password" type="password" name="password" placeholder="Password" required />
-					<input type="submit" name="submit" value="Login" class="btn"><i class="fa fa-lock" style="color: #b1b4b9; float:left; font-size: 20px; margin-left: 15px;"></i>
-				</form>
-			</div>		
-		</main>
+    <main>
+        <div id="LoginForm">
+            <h2 class="login">Login</h2>
+            <form id="loginForm" action="" method="post">
+                <div class="input-container">
+                    <input id="email" type="email" name="email" placeholder="Email address" required />
+                </div>
+                <div class="input-container">
+                    <input id="password" type="password" name="password" placeholder="Password" required />
+                </div>
+                <div class="button-container">
+                <button type="submit" class="btn">
+                    <i class="fa fa-lock lock-icon"></i> Login
+                </button>
+            </div>
+            </form>
+        </div>
+    </main>
 
-        <footer>
-            &copy; 2023 DolphinCRM | All rights reserved
-        </footer>
-
-	</body>
+    <footer>
+        &copy; 2023 DolphinCRM | All rights reserved
+    </footer>
+</body>
 </html>
