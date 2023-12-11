@@ -18,8 +18,10 @@ if (!isset($_SESSION['userid']) || empty($_SESSION['userid'])) {
 
 		<!-- you can modify this as needed or to your preference -->
 		<link href="dolphin.css" type="text/css" rel="stylesheet" />
+        <link href="viewcontacts.css" type="text/css" rel="stylesheet" />
         <link href="tables.css" type="text/css" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        
 		<!-- <script src="js/app.js" type="text/javascript"></script> -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
         <script src="js/navi.js" type="text/javascript"></script>
@@ -44,16 +46,7 @@ if (!isset($_SESSION['userid']) || empty($_SESSION['userid'])) {
                     <li class="nav-item" id="logout" role="'button" id="logout"><i class="fa fa-arrow-circle-o-left"></i> Logout</li>
                 </ul>
             </aside>
-
             <main>
-                <div id="dashMain">
-                    <div id="content-container">
-                        
-                    </div>
-                    <div id="message">
-                    </div>
-                        
-                </div>
             </main>
         </div>
 

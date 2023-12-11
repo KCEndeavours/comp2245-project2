@@ -27,22 +27,6 @@ function viewContactDetails(id) {
     display(url);
 }
 
-// function updateType(id, type){
-//     console.log('ID:', id);
-//     console.log('Type:', type);
-//     let url = "php/updatetype.php";
-//     let data = {'id': id, 'type': type}
-//     console.log(url);
-//     // console.log("Let's Roll");
-//     fetch(url,{
-//         method: 'POST',
-//         body: JSON.stringify(data),
-//         headers: {
-//             "Content-Type": "application/json",
-//         },
-//     });
-//     viewContactDetails(id);
-// }
 
 function updateType(id, type) {
     let url = "php/updatetype.php";
@@ -112,44 +96,6 @@ function checkUser() {
     }
     return false;
 }
-
-// function checkContact() {
-//     // let valid = true;
-//     const title = $("#title").val();
-//     const firstName = $("#firstname").val();
-//     const lastName = $("#lastname").val();
-//     const email = $("#emailAddress").val();
-//     const phone = $("#telephone").val();
-//     const comp = $("#company").val();
-//     const type = $("#type").val();
-//     const assign_to = $("#assigned_to").val();
-
-//     // if (valid) {
-//         const url = "php/newcontact.php";
-//         const data = {
-//             "title": title,
-//             "firstname": firstName,
-//             "lastname": lastName,
-//             "email": email,
-//             "telephone": phone,
-//             "company": comp,
-//             "type": type,
-//             "assigned_to": assign_to
-//         }
-//         display(url, body=data)
-
-//         .then(response => response.text())
-//         .then(message => {
-//             alert(message);
-
-//             addContact();
-
-//             // $("#title, #firstname, #lastname, #emailAddress, #telephone, #company, #type, #assigned_to").val("");
-//         })
-//         .catch(error => console.error('Error:', error));
-    
-//     return false;
-// }
 
 function checkContact() {
     const title = $("#title").val();
@@ -240,11 +186,12 @@ function initNavi() {
     $("#newContact").click(addContact);
     $("#users").click(() => {usersQuery()});
     $("#logout").click(logout);
+
 }
 
 function handleFilterButtonClick(button) {
 
-    $(".filter-button").removeClass("selected");
+    $(".filter-button").addClass("selected");
     $(button).addClass("selected");
 }
 
@@ -255,3 +202,4 @@ function formData(list) {
     }
     return fdata;
 }
+

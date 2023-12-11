@@ -6,7 +6,6 @@ include_once("../config.php");
 session_start();
 ?>
 
-
 <div id="head">
     <h2>Dashboard</h2>
     <button id="addContact" onclick="addContact()"><i class="fa-solid fa-plus"></i>  Add New Contact</button>
@@ -23,12 +22,11 @@ session_start();
     <table cellspacing="0" cellpadding="2" id="resultTable">
         <thead>
             <tr>
-                <th width="5%">Title</th>
-                <th width="15%">Full Name</th>
-                <th width="10%">Email</th>
-                <th width="10%">Company</th>
-                <th width="5%">Type</th>
-                <th width="10%"> Action </th>
+                <th width="35%">Full Name</th>
+                <th width="30%">Email</th>
+                <th width="20%">Company</th>
+                <th width="10%">Type</th>
+                <th width="5%"> Action </th>
             </tr>
         </thead>
         <tbody>
@@ -65,8 +63,7 @@ session_start();
                     while ($row = $query->fetch()) {
             ?>
                     <tr class="record" data-filter="<?php echo $row['type']; ?>">
-                        <td><?php echo $row['title']; ?></td>
-                        <td><?php echo $row['firstname'] . ' ' . $row['lastname']; ?></td>
+                        <td><?php echo $row['title'] . ' ' . $row['firstname'] . ' ' . $row['lastname']; ?></td>
                         <td><?php echo $row['email']; ?></td>
                         <td><?php echo $row['company']; ?></td>
                         <td><?php echo $row['type']; ?></td>

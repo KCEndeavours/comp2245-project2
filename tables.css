@@ -9,21 +9,35 @@ h2 {
 }
 
 #resultTable {
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
     width: 100%;
-    border: 1px solid #cccccc;
+    }
+tr:first-child th:first-child {
+border-top-left-radius: 10px;
 }
-
+tr:first-child th:last-child {
+border-top-right-radius: 10px;
+}
+tr:last-child td:first-child {
+border-bottom-left-radius: 10px;
+}
+tr:last-child td:last-child {
+border-bottom-right-radius: 10px;
+}
 .tableContainer {
-    background-color: #ffffff;
-    padding: 20px;
-    border: 1px solid #cccccc;
-    border-radius: 6px;
+background-color: #ffffff;
+padding: 20px;
+border: 1px solid #cccccc;
+border-radius: 6px;
+
 }
 
 th, td {
     border: 1px solid #cccccc;
     padding: 8px;
+    text-align: left;
   }
   
   th {
@@ -51,7 +65,7 @@ th, td {
     padding-bottom: 15px;
   }
 
-  .filter-button.selected {
+  .selected {
     background-color: #4CAF50 !important; /* Add your desired background color */
     color: #fff !important; /* Add your desired text color */
     border-bottom: 3px solid #0077cc !important;

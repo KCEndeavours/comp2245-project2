@@ -16,10 +16,10 @@ $currentPage = 'users';
     <table cellspacing="0" cellpadding="2" id="resultTable">
         <thead>
             <tr id= tHead>
-                <th width="30%">Name</th>
-                <th width="30%">Email</th>
-                <th width="15%">Role</th>
-                <th width="25%">Created</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Created</th>
             </tr>
         </thead>
         <tbody>
