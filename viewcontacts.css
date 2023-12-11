@@ -1,0 +1,15 @@
+#head {
+    display: flex;
+}
+#block {
+    flex-direction: column;
+ }
+
+ #viewbtns {
+    display: flex;
+ }
+
+ #mainDetails {
+    display: flex;
+ }
+

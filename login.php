@@ -70,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
                     <input id="password" type="password" name="password" placeholder="Password" required />
                 </div>
                 <div class="button-container">
-                <button name="submit" class="btn">
+                <button name="submit" type="submit" class="btn">
                     <i class="fa fa-lock lock-icon"></i> Login
                 </button>
             </div>

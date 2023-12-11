@@ -3,8 +3,7 @@ include('../config.php');
 
 session_start();
 
-// Assume you have the necessary code to retrieve contact details here
-$contactId = $_GET['id']; // You may need to adjust this based on your URL structure
+$contactId = $_GET['id'];
 
 // Fetch contact details from the database
 $query = $conn->prepare("SELECT * FROM contacts WHERE id = :contactId");
@@ -45,27 +44,31 @@ if ($contactDetails) {
         <div id="head">
             <!-- Display contact details here -->
             <img src="../favicon.ico">
-            <h1><?php echo $contactDetails['title'] . '  ' . $contactDetails['firstname'] . ' ' . $contactDetails['lastname']; ?></h1>
-            <!-- Add other contact details -->
-            <div id="time">
-                <h6>Created on <?php echo $contactDetails['created_at'] . ' by ' . $creatorName; ?></h6>
-                <h6>Updated on <?php echo $contactDetails['updated_at']; ?></h6>
-            </div>        
-            <!-- Assign button -->
-            <?php if ($assignedId !== $_SESSION['userid']) { ?>
-                <button id="assignBtn" onclick="assignToMe(<?php echo $contactDetails['id']; ?>, <?php echo $_SESSION['userid']; ?>)">Assign to Me</button>
-            <?php } ?>
+            <div id="block">
+                <h3><?php echo $contactDetails['title'] . '  ' . $contactDetails['firstname'] . ' ' . $contactDetails['lastname']; ?></h3>
+                <!-- Add other contact details -->
+                <div id="time">
+                    <h6>Created on <?php echo $contactDetails['created_at'] . ' by ' . $creatorName; ?></h6>
+                    <h6>Updated on <?php echo $contactDetails['updated_at']; ?></h6>
+                </div>     
+            </div>   
+            <div id="viewbtns">
+                <!-- Assign button -->
+                <?php if ($assignedId !== $_SESSION['userid']) { ?>
+                    <button id="assignBtn" onclick="assignToMe(<?php echo $contactDetails['id']; ?>, <?php echo $_SESSION['userid']; ?>)">Assign to Me</button>
+                <?php } ?>
 
-            <!-- Update type button -->
-            <button id="updateTypeBtn" onclick="updateType('<?php echo $contactDetails['id']; ?>', '<?php echo $contactDetails['type']; ?>')">
-                <?php
-                if ($contactDetails['type'] === 'Sales Lead') {
-                    echo "Update to Support";
-                } else {
-                    echo "Update to Sales Lead";
-                }
-                ?>
-            </button>
+                <!-- Update type button -->
+                <button id="updateTypeBtn" onclick="updateType('<?php echo $contactDetails['id']; ?>', '<?php echo $contactDetails['type']; ?>')">
+                    <?php
+                    if ($contactDetails['type'] === 'Sales Lead') {
+                        echo "Update to Support";
+                    } else {
+                        echo "Update to Sales Lead";
+                    }
+                    ?>
+                </button>
+            </div>
 
         </div>
         <div id="mainDetails">
