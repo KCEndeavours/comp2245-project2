@@ -141,9 +141,18 @@ function checkUser() {
             "role": role
 
         };
-        display(url, body=data);
+        display(url, body=data)
+            .then(response => response.text())
+            .then(text => {
+                
+                alert(text);
+                addUser();
+            })
+            .catch(error => {
+                console.error('Error:', error)
+            });
+        return false;
     }
-    return false;
 }
 
 function checkContact() {
@@ -169,14 +178,16 @@ function checkContact() {
     };
 
     display(url, body = data)
-        .then(response => response.json())
-        .then(message => {
-            alert(message);
-            display(url);
-            $("#title, #firstname, #lastname, #emailAddress, #telephone, #company, #type, #assigned_to").val("");
+        .then(response => response.text())
+        .then(text => {
+            
+            alert(text);
+            addContact();
         })
-        .catch(error => console.error('Error:', error));
-
+        .catch(error => {
+            console.error('Error:', error)
+        });
+        
     return false;
 }
 

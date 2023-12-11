@@ -34,7 +34,7 @@ try {
             $checkQuery->execute();
 
             if ($checkQuery->rowCount() > 0) {
-                echo '<script>alert("The contact with the provided email already exists.");</script>';
+                $response = "The contact with the provided email already exists.";
             } else {
                 // Performing insert query execution
                 $insertQuery = $conn->prepare("INSERT INTO contacts (title, firstname, lastname, email, telephone, company, type, assigned_to, created_by, created_at, updated_at) 
@@ -58,19 +58,21 @@ try {
 
                 // Check if the query was successful
                 if ($insertQuery->rowCount() > 0) {
-                    echo '<script>alert("Contact successfully added.");</script>';
-                    echo "Contact successfully added";
+                    $response = "Contact successfully added.";
                 } else {
-                    echo '<script>alert("Something went wrong. Please try again later.");</script>';
+                    $response = "Something went wrong. Please try again later.";
                 }
             }
         } else {
-            echo '<script>alert("Please fill in all the required fields.");</script>';
+            $response = "Please fill in all the required fields.";
         }
+
+        echo $response;
+        exit;
 
     }
 
 } catch (PDOException $e) {
-    echo '<script>alert("Database error. Please try again later.");</script>';
+    $response = "Database error. Please try again later.";
 }
 ?>

@@ -96,8 +96,9 @@ textarea {
 
 select {
    border-radius: 6px;
-   width: 150px;
-   padding: 10px;
+   width: 330px;
+   padding: 15px;
+
 }
 
 input {
@@ -107,15 +108,31 @@ input {
 
 #newCon {
    display: grid;
-   grid-template-rows: 1fr 1fr;
+   grid-template-rows: repeat(5, 1fr);
    grid-template-columns: 1fr 1fr;
 
    grid-template-areas: 
-   "a"
+   "a a"
    "b c"
    "d e"
    "f g"
-   "h";
+   "h h";
+
+   gap: 20px;
+
+   border: 1px solid grey;
+   border-radius: 5px;
+   padding: 15px;
+}
+#newUse {
+   display: grid;
+   grid-template-rows: 1fr 1fr 1fr;
+   grid-template-columns: 1fr 1fr;
+
+   grid-template-areas: 
+   "a b"
+   "c d"
+   "e e";
 
    gap: 20px;
 

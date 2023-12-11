@@ -12,11 +12,11 @@
   flex-direction: column;
 }
 
-.lock-icon {
+/* .lock-icon {
   color: #b1b4b9;
   font-size: 20px;
   margin-left: 15px;
-}
+} */
 
 #loginForm .input-container {
   margin: 15px 0; /* Adjusted margin for top and bottom */

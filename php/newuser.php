@@ -31,8 +31,7 @@ try {
             $checkQuery->execute();
 
             if ($checkQuery->rowCount() > 0) {
-                $message = "A user with the provided email already exists.";
-                $response = ['success' => false, 'error' => $message];
+                $response = "A user with the provided email already exists.";;
             } else {
         
                 // Performing insert query execution
@@ -41,7 +40,7 @@ try {
                 //Bind parameters to the statment
                 $insertQuery->bindParam(1, $firstname);
                 $insertQuery->bindParam(2, $lastname);
-                $insertQuery->bindParam(3, $password);
+                $insertQuery->bindParam(3, $hashed_pass);
                 $insertQuery->bindParam(4, $email);
                 $insertQuery->bindParam(5, $role);
                 $insertQuery->bindParam(6, $currentTimestamp);
@@ -50,18 +49,17 @@ try {
 
                 // Check if the query was successful
                 if ($insertQuery->rowCount() > 0) {
-                    $response = ['success' => true, 'message' => "Contact successfully added."];
+                    $response = "User successfully added.";
                 } else {
-                    $response = ['success' => false, 'error' => "Something went wrong. Please try again later."];
+                    $response = "Something went wrong. Please try again later.";
                 }
             }
         } else {
-            $response = ['success' => false, 'error' => "Please fill in all the required fields."];
+            $response = "Please fill in all the required fields.";
         }
 
-        // Send JSON response
-        header('Content-Type: application/json');
-        echo json_encode($response);
+        // Send response
+        echo $response;
         exit;
     }
 
