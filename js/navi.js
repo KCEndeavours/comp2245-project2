@@ -102,24 +102,22 @@ function postNote(id, userid) {
     let data = new FormData();
     data.append('id', id);
     data.append('userid', userid);
+    data.append("noteComment", $('#noteComment').val());
 
     fetch(url, {
         method: 'POST',
         body: data
     })
-    display(url, body = data)
-    .then(response => response.json())
-    .then(message => {
-        alert(message);
-        display(url);
-
+    .then(response => response.text())
+    .then(text => {
+        alert(text); 
         viewContactDetails(id);
-       
     })
-    .catch(error => console.error('Error:', error));
-
-return false;
-   
+        
+    .catch(error => {
+        console.error('Error:', error);
+    });
+    return false;
 }
 
 function checkUser() {

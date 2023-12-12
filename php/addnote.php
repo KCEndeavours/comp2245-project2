@@ -1,43 +1,49 @@
-<!-- add_note.php -->
-
 <?php
 
 session_start();
-require('../config.php');
 
+try {
+    include('../config.php');
 
-$creatorID = $_POST['userid'] ?? null;
-$id = $_POST['id'] ?? null;
-$noteComment = ($_POST['noteComment'] ?? null);
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-$currentTimestamp = date('Y-m-d H:i:s');
+        $creatorID = $_POST['userid'];
+        $id = $_POST['id'];
+        $noteComment = htmlspecialchars($_POST['noteComment']);
+        $currentTimestamp = date('Y-m-d H:i:s');
 
-// Insert the new note into the database
-if (!empty($noteComment)) {
-    try {
-        // Performing insert query execution
-        $insertQuery = $conn->prepare("INSERT INTO notes (contact_id, noteComment, created_by, created_at) 
-            VALUES (?, ?, ?, ?)");
+        // Insert the new note into the database
+        if (!empty($noteComment) && !empty($creatorID) && !empty($id)) {
 
-        // Bind parameters to the prepared statement
-        $insertQuery->bindParam(1, $id);
-        $insertQuery->bindParam(2, $noteComment);
-        $insertQuery->bindParam(3, $creatorID);
-        $insertQuery->bindParam(4, $currentTimestamp);
+            // Performing insert query execution
+            $insertQuery = $conn->prepare("INSERT INTO notes (contact_id, comment, created_by, created_at) 
+                VALUES (?, ?, ?, ?)");
 
-        // Execute the prepared statement
-        $insertQuery->execute();
+            // Bind parameters to the prepared statement
+            $insertQuery->bindParam(1, $id);
+            $insertQuery->bindParam(2, $noteComment);
+            $insertQuery->bindParam(3, $creatorID);
+            $insertQuery->bindParam(4, $currentTimestamp);
 
-    // Check if the query was successful
-        if ($insertQuery->rowCount() > 0) {
-            echo '<script>alert("Note successfully added.");</script>';
-            echo "Note successfully added";
-        } else {
-        echo '<script>alert("Cannot add empty note.");</script>';
+            // Execute the prepared statement
+            $insertQuery->execute();
+
+            // Check if the query was successful
+            if ($insertQuery->rowCount() > 0) {
+                $response = "Note successfully added.";
+            } else {
+                $response = "Cannot add empty note.";
+            }
+
+            // Send response
+            echo $response;
+            exit;
         }
-
-    } catch (PDOException $e) {
-        echo '<script>alert("Database error. Please try again later.");</script>';
     }
+
+} catch (PDOException $e) {
+    $response = "Database error. Please try again later.";
+    echo $response;
+    exit;
 }
-    ?>
+?>

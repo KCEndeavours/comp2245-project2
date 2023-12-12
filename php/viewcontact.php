@@ -6,22 +6,20 @@ session_start();
 $contactId = $_GET['id'];
 
 // Fetch contact details from the database
-$query = $conn->prepare("SELECT * FROM contacts WHERE id = :contactId");
-$query->bindParam(':contactId', $contactId, PDO::PARAM_INT);
+$query = $conn->prepare("SELECT * FROM contacts WHERE id = $contactId");
 $query->execute();
 $contactDetails = $query->fetch(PDO::FETCH_ASSOC);
+$creatorID = $contactDetails['created_by'];
 
-if ($contactDetails) {
+
+if ($contactDetails) {    
+
     // Fetch notes for the contact
-    $query2 = $conn->prepare("SELECT * FROM notes WHERE contact_id = :contactId");
-    $query2->bindParam(':contactId', $contactId, PDO::PARAM_INT);
+    $query2 = $conn->prepare("SELECT * FROM notes WHERE contact_id = $contactId");
     $query2->execute();
-    $notes = $query2->fetchAll();
+    $notes = $query2->fetchAll(PDO::FETCH_ASSOC);
 
-    $creatorID = $contactDetails['created_by'];
-
-    $query3 = $conn->prepare("SELECT * FROM users WHERE id = :creatorID");
-    $query3->bindParam(':creatorID', $creatorID, PDO::PARAM_INT);
+    $query3 = $conn->prepare("SELECT * FROM users WHERE id = $creatorID");
     $query3->execute();
     $creatorDetails = $query3->fetch(PDO::FETCH_ASSOC);
     $creatorName = $creatorDetails['firstname'] . ' ' . $creatorDetails['lastname'];
@@ -34,9 +32,9 @@ if ($contactDetails) {
         $query4->execute();
         $assignedDetails = $query4->fetch(PDO::FETCH_ASSOC);
         $assignedName = $assignedDetails['firstname'] . ' ' . $assignedDetails['lastname'];
-        }
+    }
 
-?>
+    ?>
 
     <div id="contactDetails">
         <div id="head">
@@ -94,25 +92,44 @@ if ($contactDetails) {
     <div id="notesSection">
         <!-- Display existing notes -->
         <h4><i class="fa fa-sticky-note-o"></i>Notes</h4>
-        <ul id="notesList">
+        <div id="notesList">
             <?php
             // Checks for existing notes assigned to contact
             if (empty($notes)) {
                 echo "No notes available for this contact.";
             } else {
-            // Query the database and display all notes associated with this contact
+                // Array to store note creators' names
+                $noteCreators = array();
+
+                // Query the database and display all notes associated with this contact
                 foreach ($notes as $note) {
-                    echo "<li>{$note['comment']} - {$note['created_by']} at {$note['created_at']}</li>";
+
+                    $noteCrID = $note['created_by'];
+
+                    // Check if the note creator's name is already retrieved
+                    if (!isset($noteCreators[$noteCrID])) {
+                        $query5 = $conn->prepare("SELECT * FROM users WHERE id = $noteCrID");
+                        $query5->execute();
+                        $noteCrDetails = $query5->fetch(PDO::FETCH_ASSOC);
+                        $noteCreators[$noteCrID] = $noteCrDetails['firstname'] . ' ' . $noteCrDetails['lastname'];
+                    } ?>
+                    <div id="note">
+                        <?php
+                        echo "<h6>{$noteCreators[$noteCrID]}</h6>";
+                        echo "<p>{$note['comment']}</p>"; 
+                        echo "<p>{$note['created_at']}</p>";
+                        ?>
+                    </div>
+                    <?php
                 }
-            }
+            }   
             ?>
-        </ul>
-    </div>
+        </div>
 
         <!-- Add new note section -->
     <div id="newNote">
         <h5>Add a note about <?php echo $contactDetails['firstname']; ?></h5>
-        <form id="addNoteForm" onsubmit="return postNote(<?php echo $contactDetails['id']; ?>, <?php echo $_SESSION['userid']; ?>)">
+        <form id="addNoteForm" onsubmit="return postNote('<?php echo $contactDetails['id']; ?>', '<?php echo $_SESSION['userid']; ?>')">
             <textarea name="noteComment" id="noteComment" placeholder="Enter your note here" required></textarea>
             <button type="submit">Add Note</button>
         </form>
