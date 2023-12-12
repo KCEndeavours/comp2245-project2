@@ -65,7 +65,6 @@ function assignToMe(id, userid) {
     viewContactDetails(id);
 }
 
-
 function addContact() {
     const url = "forms/new-contact.php";
     display(url);
@@ -75,27 +74,6 @@ function addUser() {
     const url = "forms/new-user.php";
     display(url);
 }
-
-// function checkNote() {
-//     let valid = true;
-//     const firstName = $("#firstname").val();
-//     const lastName = $("#lastname").val();
-//     const pass = $("#password").val();
-//     const email = $("#email").val();
-
-//     //if inputs are valid
-//     if (valid) {
-//         const url = "php/newuser.php";
-//         const data = {
-//             "firstname": firstName,
-//             "lastname": lastName,
-//             "password": pass,
-//             "email":    email
-//         };
-//         display(url, body=data);
-//     }
-//     return false;
-// }
 
 function postNote(id, userid) {
     let url = "php/addnote.php";
