@@ -23,7 +23,7 @@ if (!isset($_SESSION['userid']) || empty($_SESSION['userid'])) {
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
         
 		<!-- <script src="js/app.js" type="text/javascript"></script> -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js" type="text/javascript"></script>
         <script src="js/navi.js" type="text/javascript"></script>
 
         
