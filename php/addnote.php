@@ -19,6 +19,8 @@ try {
             $insertQuery = $conn->prepare("INSERT INTO notes (contact_id, comment, created_by, created_at) 
                 VALUES (?, ?, ?, ?)");
 
+            $updateQuery = $conn->prepare("UPDATE contacts SET updated_at = NOW() WHERE id = $id");
+
             // Bind parameters to the prepared statement
             $insertQuery->bindParam(1, $id);
             $insertQuery->bindParam(2, $noteComment);
@@ -27,6 +29,7 @@ try {
 
             // Execute the prepared statement
             $insertQuery->execute();
+            $updateQuery->execute();
 
             // Check if the query was successful
             if ($insertQuery->rowCount() > 0) {
